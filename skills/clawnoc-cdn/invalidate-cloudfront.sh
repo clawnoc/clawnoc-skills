@@ -1,6 +1,8 @@
 #!/bin/bash
 # CloudFront 缓存失效
-# 用法: ./invalidate-cloudfront.sh <distribution-id> [path]
+# Usage: ./invalidate-cloudfront.sh <distribution-id> <path>
+# Deps:  aws-cli (configured)
+# Output: Invalidation ID and status
 
 DIST_ID=${1:?"Usage: $0 <distribution-id> [path]"}
 PATH_PATTERN=${2:-"/*"}

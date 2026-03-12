@@ -1,6 +1,8 @@
 #!/bin/bash
-# 生成系统架构文档
-# 用法: ./gen-system-info.sh [output_file]
+# 采集系统信息生成报告
+# Usage: ./gen-system-info.sh
+# Deps:  uname, df, free, ip
+# Output: System info report (OS, CPU, memory, disk, network)
 
 OUTPUT=${1:-"system-info-$(date +%Y%m%d).txt"}
 

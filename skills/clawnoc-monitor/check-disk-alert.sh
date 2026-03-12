@@ -1,6 +1,8 @@
 #!/bin/bash
 # 磁盘使用率告警
-# 用法: ./check-disk-alert.sh [threshold] [webhook_url]
+# Usage: ./check-disk-alert.sh [threshold] [webhook_url]
+# Deps:  df, curl (for webhook)
+# Output: Alert if any partition exceeds threshold
 
 THRESHOLD=${1:-85}
 WEBHOOK=${2:-""}

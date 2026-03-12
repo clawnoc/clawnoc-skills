@@ -1,6 +1,8 @@
 #!/bin/bash
-# SSH 登录审计
-# 用法: ./check-ssh-audit.sh [lines]
+# SSH 安全配置审计
+# Usage: ./check-ssh-audit.sh
+# Deps:  sshd
+# Output: PASS/WARN for each SSH config item
 
 LINES=${1:-20}
 echo "=== SSH Login Audit ==="

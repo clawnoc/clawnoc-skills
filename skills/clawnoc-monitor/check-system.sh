@@ -1,6 +1,8 @@
 #!/bin/bash
-# 系统资源综合检查
-# 用法: ./check-system.sh
+# 系统资源概览：CPU、内存、磁盘、负载
+# Usage: ./check-system.sh
+# Deps:  top, free, df, uptime
+# Output: One-line summary of system resources
 
 echo "=== System Resource Check — $(date) ==="
 echo ""

@@ -1,6 +1,8 @@
 #!/bin/bash
-# 生成变更记录文档（Confluence Wiki 格式）
-# 用法: ./gen-change-doc.sh <title> <description> [output_file]
+# 自动生成变更文档（Markdown 格式）
+# Usage: ./gen-change-doc.sh <description>
+# Deps:  git, date
+# Output: Markdown change document to stdout
 
 TITLE=${1:?"Usage: $0 <title> <description> [output_file]"}
 DESC=${2:?"Usage: $0 <title> <description> [output_file]"}

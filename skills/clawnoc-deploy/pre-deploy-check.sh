@@ -1,6 +1,8 @@
 #!/bin/bash
-# 部署前环境检查
-# 用法: ./pre-deploy-check.sh [service_name]
+# 部署前检查：磁盘、内存、进程、端口
+# Usage: ./pre-deploy-check.sh
+# Deps:  df, free, ss
+# Output: PASS/FAIL for each check item
 
 SERVICE=${1:-""}
 echo "=== Pre-Deploy Check — $(date) ==="

@@ -1,6 +1,8 @@
 #!/bin/bash
 # CDN 缓存状态检查
-# 用法: ./check-cache.sh <url>
+# Usage: ./check-cache.sh <url>
+# Deps:  curl
+# Output: HTTP status, cache headers (X-Cache, Age, Cache-Control)
 
 URL=${1:?"Usage: $0 <url>"}
 echo "=== CDN Cache Check: $URL ==="

@@ -1,6 +1,8 @@
 #!/bin/bash
-# NOC 一键巡检 — 综合运行所有检查
-# 用法: ./noc-patrol.sh [health_url]
+# 全量巡检：系统+磁盘+SSL+端口+健康检查
+# Usage: ./noc-patrol.sh
+# Deps:  All above scripts
+# Output: Full patrol report
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 HEALTH_URL=${1:-""}

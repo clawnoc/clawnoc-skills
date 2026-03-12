@@ -1,6 +1,8 @@
 #!/bin/bash
-# 部署后验证
-# 用法: ./post-deploy-verify.sh <health_url> [duration_seconds]
+# 部署后验证：HTTP 状态、响应时间、健康检查
+# Usage: ./post-deploy-verify.sh <url>
+# Deps:  curl
+# Output: HTTP status, response time, health check result
 
 URL=${1:?"Usage: $0 <health_url> [duration_seconds]"}
 DURATION=${2:-60}

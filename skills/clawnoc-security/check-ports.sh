@@ -1,6 +1,8 @@
 #!/bin/bash
-# 开放端口安全检查
-# 用法: ./check-ports.sh
+# 开放端口扫描
+# Usage: ./check-ports.sh [host]
+# Deps:  ss or netstat
+# Output: List of listening ports and processes
 
 echo "=== Open Ports Security Check ==="
 DANGEROUS_PORTS="3306 6379 27017 5432 9200 11211"

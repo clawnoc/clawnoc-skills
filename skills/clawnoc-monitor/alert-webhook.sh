@@ -1,6 +1,8 @@
 #!/bin/bash
-# 通用 Webhook 告警推送（支持飞书/钉钉/Slack）
-# 用法: ./alert-webhook.sh <webhook_url> <message>
+# 发送告警到 Webhook（飞书/钉钉/Slack）
+# Usage: ./alert-webhook.sh <webhook_url> <message>
+# Deps:  curl
+# Output: HTTP response from webhook
 
 WEBHOOK=${1:?"Usage: $0 <webhook_url> <message>"}
 MESSAGE=${2:?"Usage: $0 <webhook_url> <message>"}

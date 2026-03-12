@@ -1,6 +1,8 @@
 #!/bin/bash
 # HTTP 健康检查
-# 用法: ./check-health.sh url1 url2 ...
+# Usage: ./check-health.sh <url>
+# Deps:  curl
+# Output: UP/DOWN with response time
 
 URLS=${@:?"Usage: $0 url1 url2 ..."}
 echo "=== HTTP Health Check ==="

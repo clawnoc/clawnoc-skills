@@ -1,6 +1,8 @@
 #!/bin/bash
-# SSL 证书批量检查
-# 用法: ./check-ssl.sh domain1 domain2 ...
+# SSL 证书到期时间批量检查
+# Usage: ./check-ssl.sh domain1 domain2 ...
+# Deps:  openssl
+# Output: Domain, expiry date, days remaining
 
 DOMAINS=${@:?"Usage: $0 domain1 domain2 ..."}
 WARN_DAYS=30
