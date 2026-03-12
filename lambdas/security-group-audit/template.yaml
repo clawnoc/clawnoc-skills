@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Security Group Audit
+
+Resources:
+  SGAuditFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.12
+      CodeUri: .
+      MemorySize: 256
+      Timeout: 120
+      Environment:
+        Variables:
+          WHITELIST_SG_IDS: ""
+          NOTIFY_TYPE: "slack"
+          WEBHOOK_URL: ""
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - ec2:DescribeSecurityGroups
+                - ec2:DescribeInstances
+              Resource: "*"
+      Events:
+        DailyAudit:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 6 * * ? *)

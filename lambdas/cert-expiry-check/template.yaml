@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: SSL Certificate Expiry Checker
+
+Globals:
+  Function:
+    Timeout: 60
+    Runtime: python3.12
+
+Resources:
+  CertExpiryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      CodeUri: .
+      MemorySize: 128
+      Environment:
+        Variables:
+          DOMAINS: "example.com,api.example.com"
+          WARN_DAYS: "30"
+          NOTIFY_TYPE: "slack"
+          WEBHOOK_URL: ""
+      Events:
+        DailyCheck:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 2 * * ? *)
+            Description: Daily cert expiry check at 02:00 UTC

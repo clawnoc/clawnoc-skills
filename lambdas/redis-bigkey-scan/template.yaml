@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Redis Big Key Scanner
+
+Parameters:
+  VpcSubnetIds:
+    Type: CommaDelimitedList
+    Description: Subnet IDs for Lambda (must reach ElastiCache)
+  VpcSecurityGroupIds:
+    Type: CommaDelimitedList
+    Description: Security Group IDs for Lambda
+
+Resources:
+  RedisScanFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.12
+      CodeUri: .
+      MemorySize: 512
+      Timeout: 300
+      VpcConfig:
+        SubnetIds: !Ref VpcSubnetIds
+        SecurityGroupIds: !Ref VpcSecurityGroupIds
+      Environment:
+        Variables:
+          CLUSTER_ID: ""
+          SIZE_THRESHOLD: "10240"
+          COUNT_THRESHOLD: "10000"
+          NOTIFY_TYPE: "slack"
+          WEBHOOK_URL: ""
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - elasticache:DescribeCacheClusters
+              Resource: "*"
+        - VPCAccessPolicy: {}
+      Events:
+        WeeklyCheck:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 4 ? * SUN *)

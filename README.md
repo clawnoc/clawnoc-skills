@@ -2,6 +2,7 @@
 
 [![Skills](https://img.shields.io/badge/skills-6-ff6b35)](https://github.com/clawnoc/clawnoc-skills)
 [![Scripts](https://img.shields.io/badge/scripts-14-00d68f)](https://github.com/clawnoc/clawnoc-skills)
+[![Lambdas](https://img.shields.io/badge/lambdas-5-9b59b6)](https://github.com/clawnoc/clawnoc-skills/tree/main/lambdas)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-OpenClaw-4a9eff)](https://github.com/openclaw)
 
@@ -62,6 +63,18 @@ Or run scripts directly:
 - Linux (CentOS / Ubuntu / Amazon Linux)
 - macOS
 - Cloud: AWS, GCP, Alibaba Cloud, Tencent Cloud, Volcengine
+
+## Lambda Projects
+
+Production-ready AWS Lambda functions for automated ops tasks. Each includes SAM template, README (EN/中文), and pluggable notifications (DingTalk/Feishu/Slack).
+
+| Project | Description |
+|---------|-------------|
+| 🔒 [cert-expiry-check](lambdas/cert-expiry-check/) | SSL certificate expiry monitoring |
+| 💰 [idle-resource-scan](lambdas/idle-resource-scan/) | Detect idle EC2, RDS, EBS, EIP, NAT Gateway |
+| 🔴 [redis-bigkey-scan](lambdas/redis-bigkey-scan/) | ElastiCache Redis big key detection |
+| 💸 [cost-anomaly-alert](lambdas/cost-anomaly-alert/) | Cost monitoring with daily/weekly reports |
+| 🛡️ [security-group-audit](lambdas/security-group-audit/) | Security group risk scanning with fix commands |
 
 ## License
 
