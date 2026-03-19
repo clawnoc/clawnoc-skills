@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "profile": "default",
+    "region": "ap-northeast-1"
+  },
+  "groups": {
+    "core": ["my-main-redis"],
+    "api": ["my-api-redis"]
+  },
+  "thresholds": {
+    "cpu_warn": 70,
+    "cpu_crit": 85,
+    "memory_warn": 80,
+    "memory_crit": 90,
+    "spike_ratio": 1.5,
+    "spike_crit_ratio": 2.0,
+    "drop_ratio": 0.5,
+    "drop_crit_ratio": 0.3,
+    "evictions_warn": 0,
+    "replication_lag_warn": 1
+  }
+}
